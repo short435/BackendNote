@@ -1,5 +1,12 @@
 # Docker
 
+## What's Docker 
+
+
+## Difference between VM
+
+![](/src/DockervsVM.png)
+
 ## How to install the docker
 
 ### Ubuntu
@@ -25,6 +32,8 @@ docker ps [OPTIONS]
 ```shell=
 -a [ALL]
 ```
+
+### Pull image
 
 ### Delete image
 
