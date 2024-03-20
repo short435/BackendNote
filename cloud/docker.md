@@ -23,29 +23,64 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 ## Command
 
-### List container
+### image
 
-```shell=
-docker ps [OPTIONS]
-```
-[OPTIONS]
-```shell=
--a [ALL]
+- Build image
+```docker=
+docker build [OPTIONS] .
 ```
 
-### Pull image
+**[OPTIONS]**
+```shell=
+-t [Tag]
+```
+- Push image
+```docker=
+docker push [user_name]/[image_name]
+```
 
-### Delete image
-
-Delete dangling images
+- Delete dangling images
 ```shell=
 docker image prune
 ```
 
-Delete unused images
+- Delete unused images
 ```shell=
 docker image prune -a
 ```
+
+### Container
+
+```shell=
+docker ps [OPTIONS]
+```
+**[OPTIONS]**
+```shell=
+-a [ALL]
+```
+
+- Stop all running container 
+```
+docker container stop $(docker ps -q)
+```
+
+- Remove all stop container
+```
+docker container prune
+```
+
+### System prune
+
+```
+docker system prune
+```
+
+- all stopped containers
+- all networks not used by at least one container
+- all volumes not used by at least one container
+- all images without at least one container associated to them
+- while clearing all build caches
+
 
 ## Mulitple Stage Build
 
@@ -78,8 +113,23 @@ ENV PYTHONPATH=/app
 
 ## Docker Compose
 
+```
+docker-compose up [OPTIONS]
+[OPTIONS]
+-d deamon mode
+--build build container instead of using existing one 
+```
 
+
+```
+docker-compose down
+```
 
 ### Similar Topic
 
 - [Kubernetes](/cloud/k8s.md)
+
+
+## Reference
+
+- [docker-turtorial Github](https://github.com/twtrubiks/docker-tutorial)
